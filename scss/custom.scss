@@ -1,0 +1,104 @@
+body {
+  background-color: black;
+  font-family: 'Chillax', sans-serif;
+
+  header {
+    height: 70px;
+    position: absolute;
+    nav {
+        background-color: #000000;
+        opacity:0.8;
+    }
+    @media (min-width: 767.98px) {
+        nav {
+          background-color: unset;
+        }
+    }
+    
+  }
+
+  .nav-scrolled {
+    background-color: #000000;
+    opacity:0.8;
+  }
+
+  .jumbotron {
+    background-color: #13151F;
+    padding: 16rem 1rem 8rem 1rem;
+    border-radius: .3rem;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/hero-img.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    box-shadow: 0px 8px 17px 2px rgb(112, 112, 112) , 0px 3px 14px 2px rgba(0,0,0,0.12) , 0px 5px 5px -3px rgba(0,0,0,0.2);
+
+    .overlay {
+      background: rgba($color: #000000, $alpha: 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 114%;
+    }
+
+    .hero_container {
+      width: 80%;
+      position: relative;
+    }
+    @media (min-width: 767.98px) {
+      .hero_container {
+        width: 40%;
+        position: relative;
+      }
+    }
+    @media (min-width: 1400.98px) {
+      background-size: cover;
+      padding: 26rem 1rem;
+    }
+  }
+  .wrapper {
+    max-width: 1200px;
+  }
+  .about_container {
+    position: relative;
+  }
+  .show_item {
+    min-height: 70px;
+  }
+  .join_button {
+    margin-top: 10px;
+  }
+  @media (min-width: 991.98px) {
+    .join_button {
+      margin-top: unset;
+    }
+  }
+  .scaled_icon:hover {
+    transform: scale(1.5);
+    transition: ease 800ms;
+  }
+  .foot_page {
+    font-size: smaller;
+  }
+  .backBtn {
+    bottom: 20px;
+    right: 20px;
+  }
+  .hideBackBtn {
+    display: none
+  }
+  .shownBackBtn {
+    display: block
+  }
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  .accordion-button::after {
+    color: white;
+  }
+  table {
+    word-wrap: break-word;
+  }
+}
