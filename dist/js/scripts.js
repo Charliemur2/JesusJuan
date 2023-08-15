@@ -15,7 +15,7 @@ const joinForm = document.querySelector(".join-form");
 const contactModal = document.querySelector("#contactModal");
 const newsLetterMail = document.querySelector("#news-letter-email");
 const tableEventsBody = document.querySelector(".tableEventsBody");
-const newsLetterMailValue = document.querySelector("#news-letter-email").value;
+// const newsLetterMailValue = document.querySelector("#news-letter-email").value;
 
 // form
 const name = document.querySelector("#name");
@@ -25,6 +25,7 @@ const typeOfEvent = document.querySelector("#event");
 const details = document.querySelector("#details");
 const contactForm = document.querySelector("#contactForm");
 
+contactForm.reset();
 window.onscroll = () => {
   if (window.scrollY > 10) {
     navbar.classList.add("nav-scrolled");
@@ -38,35 +39,35 @@ window.onscroll = () => {
 };
 
 // paint fetchedInfo
-const addInfoToPage = async () => {
-  const fetchedEvents = await getAPIEvents();
-  let fetchedSubscribers = await getAPISubscribers();
+// const addInfoToPage = async () => {
+//   const fetchedEvents = await getAPIEvents();
+//   let fetchedSubscribers = await getAPISubscribers();
 
-  const tableEvents = fetchedEvents
-    .map(
-      (eventItem) =>
-        `<tr>
-      <td>${eventItem.typeOfEvent}</td>
-      <td class="d-none d-md-table-cell">${eventItem.date}</td>
-      <td>${eventItem.email}</td>
-      <td class="d-none d-md-table-cell">${eventItem.name}</td>
-    </tr>`
-    )
-    .join("");
-  tableEventsBody.innerHTML = tableEvents;
+//   const tableEvents = fetchedEvents
+//     .map(
+//       (eventItem) =>
+//         `<tr>
+//       <td>${eventItem.typeOfEvent}</td>
+//       <td class="d-none d-md-table-cell">${eventItem.date}</td>
+//       <td>${eventItem.email}</td>
+//       <td class="d-none d-md-table-cell">${eventItem.name}</td>
+//     </tr>`
+//     )
+//     .join("");
+//   tableEventsBody.innerHTML = tableEvents;
 
-  let tableSubscribers = fetchedSubscribers
-    .map(
-      (subscriber) =>
-        `<tr>
-    <td>${subscriber.newsLetterMail}</td>
-  </tr>`
-    )
-    .join("");
-  tableSubscribersBody.innerHTML = tableSubscribers;
-};
+//   let tableSubscribers = fetchedSubscribers
+//     .map(
+//       (subscriber) =>
+//         `<tr>
+//     <td>${subscriber.newsLetterMail}</td>
+//   </tr>`
+//     )
+//     .join("");
+//   tableSubscribersBody.innerHTML = tableSubscribers;
+// };
 
-addInfoToPage();
+// addInfoToPage();
 
 // backBtn
 backBtn.addEventListener("click", () => {
@@ -75,36 +76,21 @@ backBtn.addEventListener("click", () => {
 });
 
 // JoinBtn
-joinForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const isMailValid = mailValidate(newsLetterMailValue);
-  if (isMailValid) {
-    await subscribersPost(newsLetterMailValue);
-    newsLetterMail.classList.remove("is-invalid");
-  } else {
-    newsLetterMail.classList.add("is-invalid");
-  }
-  joinForm.reset();
-  addInfoToPage();
-});
+// joinForm.addEventListener("submit", async (event) => {
+//   event.preventDefault();
+//   const isMailValid = mailValidate(newsLetterMailValue);
+//   if (isMailValid) {
+//     await subscribersPost(newsLetterMailValue);
+//     newsLetterMail.classList.remove("is-invalid");
+//   } else {
+//     newsLetterMail.classList.add("is-invalid");
+//   }
+//   joinForm.reset();
+//   addInfoToPage();
+// });
 
 // newEventSubmitBtn
-newSubmitEventBtn.addEventListener("click", async (event) => {
-  event.preventDefault();
-  const newEvent = {
-    name: name.value,
-    email: email.value,
-    date: date.value,
-    typeOfEvent: typeOfEvent.value,
-    details: details.value,
-  };
-  const isValidateForm = formValidate(newEvent);
-  if (isValidateForm) {
-    await eventPost(newEvent);
-    contactForm.reset();
-    bootstrap.Modal.getOrCreateInstance(contactModal).hide();
-    addInfoToPage();
-  } else {
-    console.log("invalid form");
-  }
-});
+// newSubmitEventBtn.addEventListener("click", async (event) => {
+//     contactForm.reset();
+//     bootstrap.Modal.getOrCreateInstance(contactModal).hide();
+// });
